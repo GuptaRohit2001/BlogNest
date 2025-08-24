@@ -4,9 +4,10 @@ const mongoose=require('mongoose');
 const cookieParser=require('cookie-parser');
 const userRoute=require('./routes/user');
 const { checkForAuthenticationCookie } = require("./middleware/authentication");
+require("dotenv").config();
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT;
 
 mongoose.connect('mongodb://localhost:27017/blogify').then(e=>console.log('MongoDB Connected'));
 
